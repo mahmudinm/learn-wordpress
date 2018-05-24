@@ -18,7 +18,7 @@ function fellowtuts_wpbs_pagination($pages = '', $range = 2)
 	{
 	    echo '<nav aria-label="Page navigation" role="navigation">';
         echo '<span class="sr-only">Page navigation</span>';
-        echo '<ul class="pagination ft-wpbs" style="margin-top:30px;" >';
+        echo '<ul class="pagination justify-content-center ft-wpbs" style="margin-top:30px;" >';
 		
         echo '<li class="page-item disabled hidden-md-down d-none d-lg-block"><span class="page-link">Page '.$paged.' of '.$pages.'</span></li>';
 	

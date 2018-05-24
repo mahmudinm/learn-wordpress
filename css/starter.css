@@ -16,3 +16,7 @@ body {
 .navbar {
 	margin-bottom: 40px;
 }
+
+.widget {
+	list-style: none;
+}

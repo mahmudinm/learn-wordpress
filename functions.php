@@ -14,6 +14,8 @@ function learn_scripts() {
 
 	wp_enqueue_style( 'learn-bootstrap', get_template_directory_uri(). '/css/bootstrap.css' );
 
+	wp_enqueue_style( 'learn-font-awesome', get_template_directory_uri(). '/css/font-awesome.css' );
+
 	wp_enqueue_style( 'learn-starter', get_template_directory_uri(). '/css/starter.css' );
 
 	wp_enqueue_style( 'learn-style', get_template_directory_uri(). '/style.css' );
@@ -24,6 +26,22 @@ function learn_scripts() {
 
 }
 add_action( 'wp_enqueue_scripts', 'learn_scripts' );
+
+
+/*
+	Register Widget
+*/
+function learn_widget() {
+
+	register_sidebar([
+		'name' => 'Sidebar 1',
+		'id' => 'sidebar1'
+	]);
+
+}
+
+add_action( 'widgets_init', 'learn_widget' );
+
 
 // Replaces the excerpt "Read More" text by a link
 function new_excerpt_more($more) {
