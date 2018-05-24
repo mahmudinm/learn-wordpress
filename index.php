@@ -1,48 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="">
-		<meta name="author" content="">
+<?php get_header(); ?>
+	
+	<?php if (have_posts()): ?>
+		
+		<div class="starter-template">
 
-		<title>Starter Template for Bootstrap</title>
-		<?php wp_head(); ?>
-	</head>
+			<?php while (have_posts()): the_post(); ?>
+					
+				<div class="row">
+					<div class="col-sm-8">
+						<?php get_template_part( 'content', get_post_format() ); ?>				
+					</div>				
+				</div>
 
-	<body>
-		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-			<div class="container">
-				<a class="navbar-brand" href="<?php home_url(); ?>"><?= get_bloginfo( 'title' ); ?></a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<?php
-				wp_nav_menu( array(
-					'theme_location'    => 'primary',
-					'depth'             => 2,
-					'container'         => 'div',
-					'container_class'   => 'collapse navbar-collapse',
-					'container_id'      => 'bs-example-navbar-collapse-1',
-					'menu_class'        => 'nav navbar-nav',
-					'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-					'walker'            => new WP_Bootstrap_Navwalker(),
+			<?php endwhile ?>
+
+			<!-- Post number paginate -->
+			<?= fellowtuts_wpbs_pagination(); ?>
+<!-- 			<?php  
+				the_posts_pagination( array(
+				    'screen_reader_text' => ' ', 
+				    'prev_text'          => __( 'Previous', 'learn' ),
+				    'next_text'          => __( 'Next', 'learn' ),
+				    'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( '', 'nieuwedruk' ) . ' </span>',
 				) );
-				?>
+			?> -->
 
-			</div>
-		</nav>
+		</div>
 
-		<div class="container">
-			<div class="starter-template">
-				<h1>Bootstrap starter template</h1>
-				<p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-			</div>
-		</div><!-- /.container -->
+	<?php endif ?>
 
-
-		<!-- Bootstrap core JavaScript ================================================== -->
-		<!-- Placed at the end of the document so the pages load faster -->
-		<?php wp_footer(); ?>
-	</body>
-</html>
+<?php get_footer(); ?>

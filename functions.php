@@ -22,4 +22,7 @@ add_action( 'wp_enqueue_scripts', 'learn_scripts' );
 
 require_once get_template_directory() .'/inc/class-wp-bootstrap-navwalker.php';
 
+require_once get_template_directory() .'/inc/bootstrap-pagination.php';
+
+
 ?>
