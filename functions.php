@@ -1,9 +1,15 @@
 <?php  
 
+/*
+	Register Navigation Menu
+*/
 register_nav_menus( array(
 	'primary' => __( 'Primary Menu', 'learn' ),
 ) );
 
+/*
+	File Css Dan Javascript
+*/
 function learn_scripts() {
 
 	wp_enqueue_style( 'learn-bootstrap', get_template_directory_uri(). '/css/bootstrap.css' );
@@ -17,8 +23,15 @@ function learn_scripts() {
 	wp_enqueue_script( 'learn-bootstrapjs', get_template_directory_uri(). '/js/bootstrap.js' );
 
 }
-
 add_action( 'wp_enqueue_scripts', 'learn_scripts' );
+
+// Replaces the excerpt "Read More" text by a link
+function new_excerpt_more($more) {
+       global $post;
+	return '...';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+
 
 require_once get_template_directory() .'/inc/class-wp-bootstrap-navwalker.php';
 
