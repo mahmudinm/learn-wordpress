@@ -2,6 +2,12 @@
 
 	<?php if (have_posts()): ?>
 		
+		<?php if (has_post_thumbnail()): ?>
+
+			<?php the_post_thumbnail( 'large', ['class' => 'thumbnail-page'] ); ?>
+			
+		<?php endif ?>
+
 		<div class="starter-template">
 
 			<div class="row">
