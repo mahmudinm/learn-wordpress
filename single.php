@@ -5,9 +5,13 @@
 		<?php while (have_posts()): the_post(); ?>
 
 			<!-- Header -->
+
 			<h1><?php the_title(); ?></h1>
+
 			<p><?php the_time('F jS Y g:i a'); ?></p>			
+
 			<?php 
+
 				$categories = get_the_category();
 				$separator = ", ";
 				$output = '';
@@ -18,20 +22,29 @@
 					}
 					echo trim($output, $separator);
 				}
+				
 			?>	<br>		
+
 			<b>Created by : <?php the_author(); ?></b> <br>
 
 			<!-- Content -->
 			<?php if (has_post_thumbnail()): ?>
+
 				<?php the_post_thumbnail( 'post-thumbnail', ['class' => 'img-fluid'] ); ?>
+
 			<?php endif ?>
+
 			<p><?php the_content(); ?></p>
 
 			<!-- Comment -->
 			<?php  
+
 				if (comments_open()) {
+
 					comments_template();					
+
 				} 
+
 			?>
 
 		<?php endwhile ?>
