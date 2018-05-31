@@ -5,9 +5,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="">
 		<meta name="author" content="">
-
-		<title>Starter Template for Bootstrap</title>
+		<title><?= get_bloginfo( 'title' ); ?></title>
 		<?php wp_head(); ?>
+		<style>
+			.bg-dark {
+				background-color: <?= get_theme_mod( 'navbar_color', '#343a40' ); ?> !important;
+			}
+		</style>
 	</head>
 
 	<body>

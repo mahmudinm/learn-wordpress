@@ -39,7 +39,6 @@ function learn_widget() {
 	]);
 
 }
-
 add_action( 'widgets_init', 'learn_widget' );
 
 
@@ -53,15 +52,16 @@ add_filter('excerpt_more', 'new_excerpt_more');
 
 function learn_setup() {
 
-	add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'post-thumbnails' );			
+	add_theme_support( 'custom-background' );
 
 }
 add_action( 'after_setup_theme', 'learn_setup' );
-
 
 require_once get_template_directory() .'/inc/class-wp-bootstrap-navwalker.php';
 
 require_once get_template_directory() .'/inc/bootstrap-pagination.php';
 
+require_once get_template_directory() .'/inc/customizer.php';
 
 ?>
