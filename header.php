@@ -11,6 +11,9 @@
 			.bg-dark {
 				background-color: <?= get_theme_mod( 'navbar_color', '#343a40' ); ?> !important;
 			}
+			.social_icon {
+		    background: <?= get_theme_mod( 'social_color', '#1e73be' ); ?>;
+			}			
 		</style>
 	</head>
 

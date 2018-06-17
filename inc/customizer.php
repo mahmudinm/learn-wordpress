@@ -40,6 +40,27 @@ function learn_customize_register( $wp_customize ) {
 				'settings'    => 'navbar_align'
 			) );
 			
+	$wp_customize->add_section( 'social', array(
+		'priority'       => 160,
+		'title'          => __( 'Social Color', 'learn' ),
+		'description'    => __( 'Social Color Settings', 'learn' )
+	) );
+
+			$wp_customize->add_setting( 'social_color', array(
+				'type'                 => 'theme_mod',
+				'default'              => __( '#1e73be', 'learn' )
+			) );
+
+			$wp_customize->add_control( new WP_Customize_Color_Control(
+				$wp_customize,
+				'social_color',
+				array(
+					'label'      => __( 'Social Color', 'learn' ),
+					'section'    => 'social',
+					'settings'   => 'social_color',
+				)
+			) );	
+	
 
 } 
 

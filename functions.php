@@ -4,7 +4,9 @@
 	Register Navigation Menu
 */
 register_nav_menus( array(
-	'primary' => __( 'Primary Menu', 'learn' ),
+	'primary' => __( 'Primary Menu', 'learn' )
+	// ,
+	// 'social' => __( 'Social Menu', 'learn' )
 ) );
 
 /*
@@ -38,9 +40,12 @@ function learn_widget() {
 		'id' => 'sidebar1'
 	]);
 
+	register_widget( 'laern_social_widget' );
+
 }
 add_action( 'widgets_init', 'learn_widget' );
 
+require_once( get_template_directory() . '/inc/widgets/widget-social.php' );
 
 // Replaces the excerpt "Read More" text by a link
 function new_excerpt_more($more) {
@@ -65,5 +70,9 @@ require_once get_template_directory() .'/inc/bootstrap-pagination.php';
 require_once get_template_directory() .'/inc/customizer.php';
 
 require_once get_template_directory() .'/inc/custom-comment.php';
+
+require_once get_template_directory() .'/inc/custom-comment.php';
+
+require_once get_template_directory() .'/inc/social-nav.php';
 
 ?>
