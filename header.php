@@ -42,3 +42,7 @@
 		</nav>
 
 		<div class="container">
+			
+			<div class="">
+				<?= learn_featured_slider(); ?>
+			</div>

@@ -61,7 +61,63 @@ function learn_customize_register( $wp_customize ) {
 				)
 			) );	
 	
+			
+	$wp_customize->add_section( 'learn_slider', array(
+		'priority'       => 160,
+		'title'          => __( 'Slider', 'learn' ),
+		'description'    => __( 'Slider Settings', 'learn' )
+	) );
 
+			$wp_customize->add_setting( 'learn_slider_cat', array(
+				'type'                 => 'refresh',
+				'default'              => 0,
+				'sanitize_callback' 	 => 'learn_sanitize_slidecat'
+			) );
+			
+			$wp_customize->add_control( 'learn_slider_cat', array(
+				'label'       => __( 'Choose Category', 'learn' ),
+				'section'     => 'learn_slider',
+				'type'        => 'select',
+				'choices'  => learn_cats()
+			) );
+
+			$wp_customize->add_setting( 'learn_slider_hide', array(
+				'default'              => 0,
+				'transport'            => 'refresh',
+				'sanitize_callback'    => 'learn_sanitize_checkbox'
+			) );
+			
+			// Control: Name.
+			$wp_customize->add_control( 'learn_slider_hide', array(
+				'label'       => __( 'Show Slider', 'learn' ),
+				'section'     => 'learn_slider',
+				'type'        => 'checkbox',
+			) );
+			
+			
 } 
+
+/**
+ * Adds sanitization callback function: Slider Category
+ * @package Learn
+ */
+function learn_sanitize_slidecat( $input ) {
+
+	if ( array_key_exists( $input ,  learn_cats() ) ) {
+		return $input;
+	} else {
+		return '';
+	}
+
+}
+
+function learn_sanitize_checkbox( $input ) {
+	if ( $input == 1 ) {
+		return 1;
+	} else {
+		return '';
+	}
+}
+
 
 add_action( 'customize_register', 'learn_customize_register' );

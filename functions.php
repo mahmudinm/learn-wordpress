@@ -63,6 +63,8 @@ function learn_setup() {
 }
 add_action( 'after_setup_theme', 'learn_setup' );
 
+require_once get_template_directory() .'/inc/extras.php';
+
 require_once get_template_directory() .'/inc/class-wp-bootstrap-navwalker.php';
 
 require_once get_template_directory() .'/inc/bootstrap-pagination.php';
